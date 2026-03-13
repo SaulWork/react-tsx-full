@@ -6,28 +6,32 @@ const PanelCodigoSecretoFUNC = () => {
     codigoActual: string;
   }>({ codigoSecreto: "3038", codigoActual: "" });
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const teclaPulsada = (event.target as HTMLElement).textContent;
+  const [codigoActual, setCodigoActual] = useState<string>('')
+  const [codigoSecreto] = useState<string>('3038')
 
-    const { codigoActual } = estado;
-    let nuevoCodigoActual = codigoActual;
 
-    if (teclaPulsada === "CLD") {
-      nuevoCodigoActual = "";
-    } else if (teclaPulsada === "DEL") {
-      nuevoCodigoActual = codigoActual.slice(0, -1);
-    } else {
-      if (codigoActual.length < 4) {
-        nuevoCodigoActual = codigoActual + teclaPulsada;
-      }
-    }
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) =>  {
+    const tecla = (event.target as HTMLElement).textContent ?? '';
 
-    setEstado({ ...estado, codigoActual: nuevoCodigoActual });
-  };
+    setCodigoActual(prev => {
+        const next =
+        tecla === 'CLD'
+            ? ''
+            : tecla === 'DEL'
+            ? prev.slice(0, -1)
+            : prev.length < 4
+            ? prev + tecla
+            : prev;
+
+        return next === codigoSecreto ? 'CODE OK' : next;
+    });       
+ }
 
   return (
     <div className="panel-codigo-secreto">
-      <div className="display">{estado.codigoActual}</div>
+      <div className="display">
+        {codigoActual}
+      </div>
       <div className="teclas" onClick={handleClick}>
         <div className="fila-teclas">
           <button type="button" className="tecla">
