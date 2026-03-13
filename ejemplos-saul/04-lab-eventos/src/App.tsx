@@ -1,7 +1,8 @@
 import "./App.css";
 
 function App() {
-  const handleClick = () => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event);
     const textoIntro: string = new Array(16).join("wat") + " Batman!";
     const configSpeech = new SpeechSynthesisUtterance(textoIntro);
     configSpeech.rate = 0.8;
