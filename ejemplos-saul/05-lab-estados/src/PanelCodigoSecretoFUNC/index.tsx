@@ -1,11 +1,7 @@
 import { useState } from "react";
 
 const PanelCodigoSecretoFUNC = () => {
-  const [estado, setEstado] = useState<{
-    codigoSecreto: string;
-    codigoActual: string;
-  }>({ codigoSecreto: "3038", codigoActual: "" });
-
+  
   const [codigoActual, setCodigoActual] = useState<string>('')
   const [codigoSecreto] = useState<string>('3038')
 
