@@ -1,30 +1,39 @@
 import "./App.css";
-import sonidoPiolin from './assets/sample.mp3'
-import { useRef, useState, ChangeEvent } from 'react'
+import sonidoPiolin from "./assets/sample.mp3";
+import { useRef, useState, ChangeEvent } from "react";
 
 function App() {
-   const [volumen, setVolumen] = useState(100)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [volumen, setVolumen] = useState(100);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handlePlay = () => {
-    audioRef.current?.play()
-  }
+    audioRef.current?.play();
+  };
 
   const handlePause = () => {
-    audioRef.current?.pause()
-  }
+    audioRef.current?.pause();
+  };
 
   const handleChangeVolume = (event: ChangeEvent<HTMLInputElement>) => {
-    const nuevoVolumen = Number(event.target.value)
-    setVolumen(nuevoVolumen)
+    const nuevoVolumen = Number(event.target.value);
+    setVolumen(nuevoVolumen);
 
     if (audioRef.current) {
-      audioRef.current.volume = nuevoVolumen / 100
+      audioRef.current.volume = nuevoVolumen / 100;
     }
-  }
+  };
 
   return (
-    <div>
+    <div
+      style={{
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        background: "lightblue",
+        padding: "20px",
+      }}
+    >
       <audio ref={audioRef} src={sonidoPiolin} />
 
       <button type="button" onClick={handlePlay}>
@@ -43,7 +52,6 @@ function App() {
         onChange={handleChangeVolume}
       />
     </div>
-  )
+  );
 }
-
 export default App;
