@@ -101,9 +101,8 @@ const Acordeon = ({ children, titulo, cerrado = true }) => {
 export default Acordeon
 ```
 Como podemos indicarle desde la propiedad cerrado el estado inicial y la propiedad puede
-```tsx
 cambiar desde el exterior, vamos a utilizar el hook de useEffect para inicializar y sincronizar el
-```
+
 estado con esa propiedad.
 
 **Archivo:** `/reactjs-children-lab/src/components/Acordeon.tsx`
