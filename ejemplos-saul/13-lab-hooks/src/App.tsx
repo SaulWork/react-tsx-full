@@ -1,6 +1,6 @@
 import "./App.css";
-import { useState } from 'react';
 import Context from "./components/Context";
+import Persona from "./components/Persona";
 
 
 
@@ -8,7 +8,11 @@ function App() {
 
   return (
     <div>
-        <Context />
+        {/* <h1>Context</h1>
+        <Context /> */}
+        
+        <h1>Memo</h1>
+         <Persona />
       </div>
   );
 }
