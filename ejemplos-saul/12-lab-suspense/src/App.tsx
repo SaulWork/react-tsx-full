@@ -9,15 +9,15 @@ function App() {
 
   return (
     <div>
-    <button type="button" onClick={() => setEsAdmin(!esAdmin)}>Toggle admin</button>
-            { esAdmin ?
-                <Suspense fallback={<p>Loading...</p>}>
-                  <Admin />
-                </Suspense>
-            :
-
-              <Inicio />
-            }
+        <button type="button" onClick={() => setEsAdmin(!esAdmin)}>Toggle admin</button>
+        { 
+          esAdmin ?
+            <Suspense fallback={<p>Loading...</p>}>
+              <Admin />
+            </Suspense>
+          :
+          <Inicio />
+        }
       </div>
   );
 }
