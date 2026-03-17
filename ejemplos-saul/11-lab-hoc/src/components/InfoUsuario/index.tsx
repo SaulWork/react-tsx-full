@@ -1,11 +1,7 @@
 import React from "react";
 
 const InfoUsuario: React.FC<{ data: any }> = ({ data }) => {
-  const { name, email, picture } = {
-    name: { first: "test", last: "test" },
-    email: "email test",
-    picture: { medium: "www.tes.com" },
-  }; // data.results[0]
+  const { name, email, picture } = data.results[0]
 
   return (
     <div>
